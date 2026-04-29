@@ -135,8 +135,7 @@ const Founders = () => {
         <div className="mt-px grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 grid-rows-auto gap-px bg-[#ddd5c8]">
           {/* ── IMAGE cell — two portraits, spans 5 cols, 2 rows on lg ── */}
           <motion.div
-            className="lg:col-span-5 lg:row-span-2 grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#ddd5c8] overflow-hidden"
-            style={{ minHeight: "360px" }}
+            className="lg:col-span-5 lg:row-span-2 grid grid-cols-2 grid-rows-1 gap-px bg-[#ddd5c8] overflow-hidden lg:min-h-[360px] lg:items-stretch"
             initial={{ opacity: 0, scale: 1.02 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-60px" }}
@@ -145,7 +144,7 @@ const Founders = () => {
             {FOUNDER_PHOTOS.map((photo, i) => (
               <motion.div
                 key={photo.name}
-                className="relative overflow-hidden bg-[#e8e0d4] min-h-[320px] sm:min-h-0 h-full"
+                className="relative min-w-0 overflow-hidden bg-[#e8e0d4] w-full max-lg:aspect-3/4 lg:h-full lg:aspect-auto"
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
@@ -155,27 +154,25 @@ const Founders = () => {
                   ease: [0.16, 1, 0.3, 1],
                 }}
               >
-                <div
-                  className="relative w-full h-full min-h-[320px] sm:min-h-[360px] lg:min-h-[420px]"
-                >
+                <div className="absolute inset-0">
                   <img
                     src={photo.src}
                     alt={photo.alt}
                     className="absolute inset-0 w-full h-full object-cover object-[center_18%]"
-                    sizes="(max-width: 640px) 100vw, 50vw"
+                    sizes="(max-width: 1023px) 45vw, 25vw"
                   />
                   <div
-                    className="absolute inset-x-0 bottom-0 h-28 sm:h-32 pointer-events-none"
+                    className="absolute inset-x-0 bottom-0 h-24 sm:h-28 lg:h-32 pointer-events-none"
                     style={{
                       background:
                         "linear-gradient(to top, rgba(42,26,14,0.72) 0%, transparent 100%)",
                     }}
                   />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 lg:p-6">
-                    <p className="text-white/95 text-base sm:text-lg font-semibold leading-tight">
+                  <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-5 lg:p-6">
+                    <p className="text-white/95 text-sm sm:text-base lg:text-lg font-semibold leading-tight">
                       {photo.name}
                     </p>
-                    <p className="text-white/55 text-[10px] sm:text-xs tracking-widest uppercase mt-0.5">
+                    <p className="text-white/55 text-[9px] sm:text-xs tracking-widest uppercase mt-0.5 leading-snug">
                       Co-Founder, NUVÓ
                     </p>
                   </div>

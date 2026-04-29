@@ -15,6 +15,7 @@ const RecruitmentForm = () => {
     handleSubmit,
     reset,
     watch,
+    getValues,
     formState: { errors },
     setError,
     clearErrors,
@@ -279,7 +280,11 @@ const RecruitmentForm = () => {
         <PersonalInfoSection control={control} errors={errors} />
         <DimensionsSection control={control} errors={errors} />
         <EducationSection control={control} errors={errors} />
-        <LanguagesSection control={control} errors={errors} />
+        <LanguagesSection
+          control={control}
+          errors={errors}
+          getValues={getValues}
+        />
         <ExperienceSection
           control={control}
           errors={errors}
